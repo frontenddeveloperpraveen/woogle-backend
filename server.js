@@ -55,6 +55,19 @@ app.post("/anyfreeroom", (req, res) => {
     return res.json({ message: "Free room available", roomid: roomid });
   }
 });
+app.get("/debug", (req, res) => {
+  res.json({
+    message: "Server is running",
+    connections: io.engine.clientsCount,
+  });
+});
+
+app.get("/anyfreeroom", (req, res) => {
+  res.json({
+    message: "Only post request will work",
+    connections: io.engine.clientsCount,
+  });
+});
 
 server.listen(3000, () => {
   console.log("server is running");
